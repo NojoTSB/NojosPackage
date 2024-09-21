@@ -1,29 +1,60 @@
+-- This part always runs, regardless of whether KadeHub has been injected before 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/BaldyToSorcerer/main/Latest.lua"))()
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Gabrygame13/B2SMODS/refs/heads/main/QuarterSecondSurge-B2Smod.lua"))()
- 
-getgenv().DisableWarning = true
-loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/KadeHubRepository/main/Latest.lua"))()
 
--- ignore
-local function callback(Text)
- if Text == "Button1 text" then
-  print ("Answer")
-elseif Text == ("Button2 text") then
- print ("Answer2")
- end
+-- Check if AutoReport is set and if the KadeHub script has been injected
+if not (getgenv().AutoReport and getgenv().KadeHubInjected) then
+    -- If not injected yet, set AutoReport
+    getgenv().AutoReport = true
+    
+    -- KadeHub will be executed here last
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/KadeHubRepository/main/Latest.lua"))()
+
+    -- Set a flag to indicate the KadeHub script has been injected
+    getgenv().KadeHubInjected = true
+
+    -- Standard notification when injecting KadeHub for the first time
+    print("Sending success notification...")
+    local NotificationBindable = Instance.new("BindableFunction")
+    NotificationBindable.OnInvoke = function(Text)
+        if Text == "Pwease (gets on knees)" then
+            print("Cookie Accepted!")
+        end
+    end
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Success!";
+        Text = "You executed. You want a cookie?";
+        Icon = "rbxassetid://16219788883"; -- Use rbxassetid:// for icons
+        Duration = 20; -- Set duration to 20 seconds
+        Button1 = "Pwease (gets on knees)";
+        Callback = NotificationBindable;
+    })
+else
+    -- KadeHub has already been injected, so show this notification instead
+    print("Sending already injected notification...")
+    local NotificationBindable = Instance.new("BindableFunction")
+    NotificationBindable.OnInvoke = function(Text)
+        if Text == "Okay Daddy" then
+            print("Gojo Activated!")
+        end
+    end
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Gojo Activated";
+        Text = "Six Eyes Reactivated";
+        Icon = "rbxassetid://16219788883"; -- Use the same or a different valid icon asset
+        Duration = 20; -- Set duration to 20 seconds
+        Button1 = "Okay Daddy";
+        Callback = NotificationBindable;
+    })
 end
 
---actual
-
-local NotificationBindable = Instance.new("BindableFunction")
-NotificationBindable.OnInvoke = callback
---
-game.StarterGui:SetCore("SendNotification",  {
- Title = "Sucsess!"; --the title
- Text = "You executed. you want a cookie?"; --the text
- Icon = "16219788883"; --icon if you want
- Duration = 5; --for how many seconds it should be there
- Button1 = "yes"; --option
- Callback = NotificationBindable;
-})
+-- Ignore
+local function callback(Text)
+    if Text == "Button1 text" then
+        print("Answer")
+    elseif Text == "Button2 text" then
+        print("Answer2")
+    end
+end
