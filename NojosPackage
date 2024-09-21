@@ -25,11 +25,28 @@ if not (getgenv().DisableWarning and getgenv().KadeHubInjected) then
         Title = "Success!";
         Text = "You executed. You want a cookie?";
         Icon = "rbxassetid://16219788883"; -- Use rbxassetid:// for icons
-        Duration = 20;
-        Button1 = "Pwease (gets on knees)";
+        Duration = 5;
+        Button1 = "Yes";
         Callback = NotificationBindable;
---credits
     })
+
+    -- Credits Notification
+    local CreditsBindable = Instance.new("BindableFunction")
+    CreditsBindable.OnInvoke = function(Text)
+        if Text == "Wow Those People Are So Cool!" then
+            print("Credits acknowledged!")
+        end
+    end
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Credits";
+        Text = "Script Package NojoTSB, Kadehub and Sorcerer i.am.an.agent, QSS (5th move) retro_the_noobie";
+        Icon = ""; -- No icon for now
+        Duration = math.huge; -- Keeps the notification up until the button is clicked
+        Button1 = "Wow Those People Are So Cool!";
+        Callback = CreditsBindable;
+    })
+
 else
     -- KadeHub has already been injected, so show this notification instead
     local NotificationBindable = Instance.new("BindableFunction")
@@ -43,8 +60,8 @@ else
         Title = "Gojo Activated";
         Text = "Six Eyes Reactivated";
         Icon = "rbxassetid://16219788883"; -- Use the same or a different valid icon asset
-        Duration = 20;
-        Button1 = "Grah (im gonna pull a gun)";
+        Duration = 5;
+        Button1 = "Understood";
         Callback = NotificationBindable;
     })
 end
