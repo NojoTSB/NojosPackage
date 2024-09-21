@@ -29,6 +29,14 @@ if not (getgenv().DisableWarning and getgenv().KadeHubInjected) then
         Button1 = "Pwease (gets on knees)";
         Callback = NotificationBindable;
 --credits
+ local NotificationBindable = Instance.new("BindableFunction")
+    NotificationBindable.OnInvoke = function(Text)
+        if Text == "Yes" then
+            print("Cookie Accepted!")
+        end
+    end
+
+
 game.StarterGui:SetCore("SendNotification", {
         Title = "Credits";
         Text = "thanks to Kade (kadehub and sorcerer) and retro (5th move)";
