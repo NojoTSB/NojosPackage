@@ -1,0 +1,29 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/BaldyToSorcerer/main/Latest.lua"))()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Gabrygame13/B2SMODS/refs/heads/main/QuarterSecondSurge-B2Smod.lua"))()
+ 
+getgenv().DisableWarning = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/KadeHubRepository/main/Latest.lua"))()
+
+-- ignore
+local function callback(Text)
+ if Text == "Button1 text" then
+  print ("Answer")
+elseif Text == ("Button2 text") then
+ print ("Answer2")
+ end
+end
+
+--actual
+
+local NotificationBindable = Instance.new("BindableFunction")
+NotificationBindable.OnInvoke = callback
+--
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "Sucsess!"; --the title
+ Text = "You executed. you want a cookie?"; --the text
+ Icon = "16219788883"; --icon if you want
+ Duration = 5; --for how many seconds it should be there
+ Button1 = "yes"; --option
+ Callback = NotificationBindable;
+})
