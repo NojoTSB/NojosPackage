@@ -7,6 +7,9 @@ if not (getgenv().DisableWarning and getgenv().KadeHubInjected) then
     -- If not injected yet, set DisableWarning
     getgenv().DisableWarning = true
     
+    -- Set AutoReport to true
+    getgenv().AutoReport = true
+    
     -- KadeHub will be executed here last
     loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/KadeHubRepository/main/Latest.lua"))()
 
@@ -25,7 +28,7 @@ if not (getgenv().DisableWarning and getgenv().KadeHubInjected) then
         Title = "Success!";
         Text = "You executed. You want a cookie?";
         Icon = "rbxassetid://16219788883"; -- Use rbxassetid:// for icons
-        Duration = 5;
+        Duration = 20; -- Set to 20 seconds
         Button1 = "Yes";
         Callback = NotificationBindable;
     })
@@ -60,7 +63,7 @@ else
         Title = "Gojo Activated";
         Text = "Six Eyes Reactivated";
         Icon = "rbxassetid://16219788883"; -- Use the same or a different valid icon asset
-        Duration = 5;
+        Duration = 20; -- Set to 20 seconds
         Button1 = "Understood";
         Callback = NotificationBindable;
     })
