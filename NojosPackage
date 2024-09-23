@@ -1,3 +1,4 @@
+this is open sorce ig
 -- This part always runs, regardless of whether KadeHub has been injected before
 loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/BaldyToSorcerer/main/Latest.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Gabrygame13/B2SMODS/refs/heads/main/QuarterSecondSurge-B2Smod.lua"))()
