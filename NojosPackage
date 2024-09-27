@@ -1,15 +1,6 @@
 --Made By nojotsb on discord and nojo15 on yt
 --configure to your liking
 
-if not getgenv().KadeHubInjected then
-    -- KadeHub execution
-    getgenv().DisableWarning = true
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/KadeHubRepository/main/Latest.lua"))()
-
-   
-    getgenv().KadeHubInjected = true
-end
-
 -- Gojo Script (This runs each time you re-execute)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/BaldyToSorcerer/main/Latest.lua"))()
 
